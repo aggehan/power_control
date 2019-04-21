@@ -16,6 +16,9 @@ class PowerController:
         GPIO.setup(self.pin_on, GPIO.OUT)
         GPIO.setup(self.pin_off, GPIO.OUT)
 
+        GPIO.output(self.pin_on, True)
+        GPIO.output(self.pin_off, True)
+
         GPIO.output(self.pin_on, False)
         GPIO.output(self.pin_off, False)
 

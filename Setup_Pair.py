@@ -44,9 +44,13 @@ class PowerController:
 A = PowerController(17,27)
 
 A.init_pi_pins()
+print("init pins done")
+time.sleep(10)
 A.turn_on()
-time.sleep(4)
+time.sleep(10)
 A.turn_off()
+time.sleep(5)
+print(" Shutdown NOW")
 A.shutdown()
 
 

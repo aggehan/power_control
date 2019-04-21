@@ -30,6 +30,10 @@ class PowerController:
 
 
 
-PC_A = PowerController(17,27)
+pc_A = PowerController(17,27)
+
+pc_A.turn_on()
+
+
 
 #print(A.pin_off)

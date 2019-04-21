@@ -16,28 +16,52 @@ class PowerController:
         GPIO.setup(self.pin_on, GPIO.OUT)
         GPIO.setup(self.pin_off, GPIO.OUT)
 
-        GPIO.output(self.pin_on, True)
-        GPIO.output(self.pin_off, True)
+        #GPIO.output(self.pin_on, True)
+        #GPIO.output(self.pin_off, True)
 
         GPIO.output(self.pin_on, False)
         GPIO.output(self.pin_off, False)
 
 
     def turn_on(self):
-        print("its on")
-        GPIO.output(self.pin_on, True)
-        time.sleep(1)
-        GPIO.output(self.pin_on, False)
+        print("On Start")
 
+        # Spam press the button
+        counter = 1
+        while counter<=6:
+            # Make sure it is off
+            GPIO.output(self.pin_off, False)
+            # Turn on
+            GPIO.output(self.pin_on, True)
+            time.sleep(1)
+            GPIO.output(self.pin_on, False)
+            #increment
+            counter = counter + 1
+        print("On End.")
 
 
     def turn_off(self):
-        print("its off")
-        GPIO.output(self.pin_off, True)
-        time.sleep(1)
-        GPIO.output(self.pin_off, False)
+        print("Off Start")
+
+        # Spam press the button
+        counter = 1
+        while counter<=6:
+            # Make sure it is off
+            GPIO.output(self.pin_on, False)
+            # Turn on
+            GPIO.output(self.pin_off, True)
+            time.sleep(1)
+            GPIO.output(self.pin_off, False)
+            #increment
+            counter = counter + 1
+
+        print("Off End.")
+
 
     def shutdown(self):
+        print(" Shutdown NOW")
+        GPIO.output(self.pin_on, False)
+        GPIO.output(self.pin_off, False)
         GPIO.cleanup()
         quit()
 
@@ -47,16 +71,6 @@ class PowerController:
 A = PowerController(17,27)
 
 A.init_pi_pins()
-print("init pins done")
-time.sleep(10)
 A.turn_on()
-time.sleep(10)
 A.turn_off()
-time.sleep(50)
-print(" Shutdown NOW")
 A.shutdown()
-
-
-
-
-#print(A.pin_off)

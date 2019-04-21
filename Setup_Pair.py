@@ -52,7 +52,7 @@ time.sleep(10)
 A.turn_on()
 time.sleep(10)
 A.turn_off()
-time.sleep(5)
+time.sleep(50)
 print(" Shutdown NOW")
 A.shutdown()
 

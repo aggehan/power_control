@@ -28,12 +28,12 @@ class PowerController:
 
         # Spam press the button
         counter = 1
-        while counter<=6:
+        while counter<=10:
             # Make sure it is off
             GPIO.output(self.pin_off, False)
             # Turn on
             GPIO.output(self.pin_on, True)
-            time.sleep(1)
+            time.sleep(0.10)
             GPIO.output(self.pin_on, False)
             #increment
             counter = counter + 1
@@ -45,12 +45,12 @@ class PowerController:
 
         # Spam press the button
         counter = 1
-        while counter<=6:
+        while counter<=10:
             # Make sure it is off
             GPIO.output(self.pin_on, False)
             # Turn on
             GPIO.output(self.pin_off, True)
-            time.sleep(1)
+            time.sleep(0.10)
             GPIO.output(self.pin_off, False)
             #increment
             counter = counter + 1

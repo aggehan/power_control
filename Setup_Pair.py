@@ -45,6 +45,7 @@ A = PowerController(17,27)
 
 A.init_pi_pins()
 A.turn_on()
+A.turn_off()
 A.shutdown()
 
 

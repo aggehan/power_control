@@ -22,6 +22,17 @@ class PowerController:
 
     def turn_on(self):
         print("its on")
+        GPIO.output(self.pin_on, True)
+        time.sleep(1)
+        GPIO.output(self.pin_on, False)
+
+
+
+    def turn_on(self):
+        print("its off")
+        GPIO.output(self.pin_off, True)
+        time.sleep(1)
+        GPIO.output(self.pin_off, False)
 
     def shutdown(self):
         GPIO.cleanup()
@@ -30,9 +41,12 @@ class PowerController:
 
 
 
-pc_A = PowerController(17,27)
+A = PowerController(17,27)
 
-pc_A.turn_on()
+A.init_pi_pins()
+A.turn_on()
+A.shutdown()
+
 
 
 
